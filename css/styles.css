@@ -1,0 +1,94 @@
+/* Pantalla dividida */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #181c24;
+}
+#preloader {
+    position: fixed;
+    z-index: 9999;
+    background: #181c24;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.split-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.split {
+    flex: 1;
+    transition: 0.3s cubic-bezier(.4,2,.6,1);
+    color: #fff;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    filter: brightness(0.7); /* Oscurecido por defecto */
+    z-index: 1;
+}
+
+.split:hover, .split:focus {
+    transform: scale(1.04);
+    filter: brightness(1.15);
+    z-index: 2;
+}
+
+.split:active {
+    transform: scale(0.98);
+}
+
+.split.disabled, .split[aria-disabled="true"] {
+    filter: brightness(0.5) grayscale(0.2);
+    pointer-events: none;
+    cursor: default;
+}
+.split.left {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    border-right: 2px solid #222;
+}
+.split.right {
+    background: linear-gradient(225deg, #232526 0%, #414345 100%);
+}
+.division-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+.division-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.division-btn {
+    font-size: 1.1rem;
+    padding: 0.7em 2.5em;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+    border: 2px solid #fff;
+    transition: 0.3s;
+    filter: none;
+}
+.division-btn:hover {
+    background: #fff;
+    color: #2a5298;
+    border-color: #fff;
+}
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+    .split {
+        min-height: 50vh;
+    }
+    .split.left, .split.right {
+        border-right: none;
+        border-bottom: 2px solid #222;
+    }
+}
