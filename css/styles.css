@@ -35,7 +35,7 @@ body, html {
 
 .split:hover, .split:focus {
     transform: scale(1.04);
-    filter: brightness(1.15);
+    filter: brightness(0.8);
     z-index: 2;
 }
 
@@ -49,15 +49,16 @@ body, html {
     cursor: default;
 }
 .split.left {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: #ff9800;
     border-right: 2px solid #222;
 }
 .split.right {
-    background: linear-gradient(225deg, #232526 0%, #414345 100%);
+    background: #e0e0e0;
+    color: #222;
 }
 .division-logo {
-    width: 120px;
-    height: 120px;
+    width: 420px;
+    height: 420px;
     object-fit: contain;
 }
 .division-title {
@@ -75,20 +76,77 @@ body, html {
     transition: 0.3s;
     filter: none;
 }
+
+/* Botón de la derecha con fondo gris más oscuro */
+.split.right .division-btn {
+    background: #ccc7c7;
+    color: #222;
+    border: 2px solid #888;
+}
 .division-btn:hover {
     background: #fff;
     color: #2a5298;
-    border-color: #fff;
+    border-color: #000000;
 }
-@media (max-width: 768px) {
+
+.split.right .division-btn:hover {
+    background: #ff9800;
+    color: #fff;
+    border-color: #e65100;
+}
+@media (max-width: 1024px) {
     .split-container {
         flex-direction: column;
+        height: auto;
+        min-height: 100vh;
     }
     .split {
-        min-height: 50vh;
+        min-height: 45vh;
+        width: 100vw;
+        padding: 2rem 0;
     }
     .split.left, .split.right {
         border-right: none;
         border-bottom: 2px solid #222;
+    }
+    .division-logo {
+        width: 180px;
+        height: 180px;
+    }
+    .division-title {
+        font-size: 1.1rem;
+    }
+    .division-btn {
+        font-size: 1rem;
+        padding: 1em 2em;
+        width: 90vw;
+        max-width: 320px;
+    }
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .split {
+        min-height: 40vh;
+        padding: 1rem 0;
+    }
+    .division-logo {
+        width: 110px;
+        height: 110px;
+    }
+    .division-title {
+        font-size: 1rem;
+    }
+    .division-btn {
+        font-size: 0.95rem;
+        padding: 0.7em 1.2em;
+        width: 94vw;
+        max-width: 260px;
+    }
+    h2 {
+        font-size: 1.2rem;
     }
 }
